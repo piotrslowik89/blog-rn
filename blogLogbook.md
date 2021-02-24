@@ -41,3 +41,4 @@ export const BlogProvider = ({ children }) => {
   return <BlogContext.Provider>{children}</BlogContext.Provider>;
 };
 
+# Moving data with context
