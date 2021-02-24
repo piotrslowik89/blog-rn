@@ -77,3 +77,16 @@ setBlogPosts([...blog posts {title: #${blogPosts.length +2}}])
 
 doadjemy do blofcontext
 value
+
+# IT WORKS
+
+IndexScreen.js
+import Button from 'react-native'
+
+destrukturyzaacja 2 zmiennych data, addBlogPost   z Contextu
+const { data, addBlogPost } = useContext(BlogContext);
+
+Tworzymy Button
+  <Button title="Add Post" onPress={addBlogPost} />
+
+  <FlatList data={data}
