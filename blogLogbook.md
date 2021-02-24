@@ -42,3 +42,25 @@ export const BlogProvider = ({ children }) => {
 };
 
 # Moving data with context
+useContext(BlogContext);
+
+# rendering a list of posts
+w BLogContext dodajemy
+
+ const blogPosts = [{ title: 'Blog Post #1' }, { title: 'Blog Post #2' }];
+
+ <BlogContext.Provider value={blogPosts}>
+
+w IndexScreen  dodajemy
+
+importujemy FlatList 
+
+const blogPosts = useContext(BlogContext);
+
+ <FlatList
+        data={blogPosts}
+        keyExtractor={blogPost => blogPost.title}
+        renderItem={({ item }) => {
+          return <Text>{item.title}</Text>;
+        }}
+      />
