@@ -92,3 +92,11 @@ Tworzymy Button
   <FlatList data={data}
 
 #  Opportunity for Improvement-Szansa na poprawę
+w BLogContext:
+Zamiast tworzyć oddzielną funkcję dla każej operacji :
+const editBlogPost
+const deleteBlogPost
+
+Urzyjemu UseReducer zamias UseState 
+import React, { useReducer } from 'react';
+# Updating with UseReducer
