@@ -64,3 +64,16 @@ const blogPosts = useContext(BlogContext);
           return <Text>{item.title}</Text>;
         }}
       />
+
+
+# Adding State in Context
+w BLogContext dodajemy:
+import {usestate}
+
+tworzymy hooka statea
+
+tworzymy adBlogPost =() =>
+setBlogPosts([...blog posts {title: #${blogPosts.length +2}}])
+
+doadjemy do blofcontext
+value
