@@ -90,3 +90,5 @@ Tworzymy Button
   <Button title="Add Post" onPress={addBlogPost} />
 
   <FlatList data={data}
+
+#  Opportunity for Improvement-Szansa na poprawę
