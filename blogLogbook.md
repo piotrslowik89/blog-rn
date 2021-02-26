@@ -159,4 +159,16 @@ Z IndexScreen.js usówamy
  Iportujemy expo icons
  trash
 
- 
+ # Deleting Posts
+ dodaliśmy w IndexScreen.js import TouchableOpacity
+
+ <Text style={styles.title}>
+              <Feather style={styles.icon} name="trash" />	                {item.title} - {item.id}
+              </Text>
+              <TouchableOpacity onPress={() => console.log(item.id)}>
+                <Feather style={styles.icon} name="trash" />
+
+ wygenerowaliśmy w BlogContext.js losowe id
+
+ id: Math.floor(Math.random() * 99999),
+
