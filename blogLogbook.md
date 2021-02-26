@@ -292,3 +292,21 @@ dodanie 2 inputtext
 dodadnie 2 useState
 dodanie buttona
 stylizacja
+
+# Saving a New Post
+
+BlogContext.js
+zmieniamy funcję dispatchera
+addBlogPost 
+
+
+CreateScreen.js 
+dodajemy 
+const { addBlogPost } = useContext(Context);
+
+przyspisujemy do buttona funkcje dispatchująca
+
+ <Button
+        title="Add Blog Post"
+        onPress={() => addBlogPost(title, content)}
+      />
