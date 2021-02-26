@@ -265,3 +265,23 @@ zmieniamy na Create Screan
 importujemy go w App.js
 
 dodajemy do navigatora
+
+
+# Header Navigation
+Tworzymy przycisk który nawiguje do Create
+
+IndexScreen.js
+
+Przestarzałe:
+
+IndexScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: (
+      <TouchableOpacity onPress={() => navigation.navigate('Create')}>
+        <Feather name="plus" size={30} />
+      </TouchableOpacity>
+    )
+  };
+};
+
+ obecnie headerRight: () => (
