@@ -285,3 +285,10 @@ IndexScreen.navigationOptions = ({ navigation }) => {
 };
 
  obecnie headerRight: () => (
+
+# Displaying a Form
+
+dodanie 2 inputtext
+dodadnie 2 useState
+dodanie buttona
+stylizacja
