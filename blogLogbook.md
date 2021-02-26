@@ -310,3 +310,33 @@ przyspisujemy do buttona funkcje dispatchująca
         title="Add Blog Post"
         onPress={() => addBlogPost(title, content)}
       />
+
+
+# Navigation on Save
+
+CreateScreen.js
+- dodajemy funkcje navigation do buttona
+
+<Button
+        title="Add Blog Post"
+        onPress={() => {
+          addBlogPost(title, content, () => {
+            navigation.navigate('Index');
+          });
+        }}
+        
+BlogContext.js 
+- dodajemy callback
+
+const addBlogPost = dispatch => {
+  return (title, content, callback) => {
+    dispatch({ type: 'add_blogpost', payload: { title, content } });
+    callback();
+  };
+};
+
+IndexScreen.js
+- usówamy niepotrzebny button
+
+const IndexScreen = ({ navigation }) => {
+  const { state, deleteBlogPost } = useContext(Context);
