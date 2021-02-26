@@ -150,3 +150,13 @@ src/context/createDataContext.js
 
   return { Context, Provider };
 };
+
+# A Bit of styling
+Z IndexScreen.js usówamy
+<Text> IndexScreen
+ 
+
+ Iportujemy expo icons
+ trash
+
+ 
