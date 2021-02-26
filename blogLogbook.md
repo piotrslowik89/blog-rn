@@ -203,3 +203,53 @@ onPress
 
 <TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
 
+# Navigation on Tap
+src/screens/ShowScreen.js
+na poczatku mock
+
+const ShowScreen = () => {
+  return (
+    <View>
+      <Text>Show Screen</Text>
+    </View>
+  );
+};
+
+w App.js  importujemy i dodajemy do navwigator
+
+const navigator = createStackNavigator(
+
+
+w IndexScreen.js  przekazujemy 
+
+const IndexScreen = ({ navigation })
+
+
+dodajemy przycisk TouchableOpacity
+      onPress={() => navigation.navigate('Show', { id: item.id })}	 
+
+# Retrieving Single Posts- Pobieranie pojedynczych postów
+chcemy zrobić tak żeby w ShowScreen pojawała się nazwa postu
+
+w ShowScreen.js
+importujemy kontext
+
+import React, { useContext } from 'react';
+
+import { Context } from '../context/BlogContext';
+
+przesyłamy navigation do componentu
+const ShowScreen = ({ navigation }) =>
+
+
+destrukturyzujemy state z kontekstu
+  const { state } = useContext(Context)
+
+w zmiennej blogPost pobieramy parametry dla dnaego posta 
+
+  const blogPost = state.find(
+    blogPost => blogPost.id === navigation.getParam('id')
+  );
+
+wyświetlamy tytuł 
+<Text>{blogPost.title}</Text>
