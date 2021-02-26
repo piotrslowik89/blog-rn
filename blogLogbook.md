@@ -253,3 +253,15 @@ w zmiennej blogPost pobieramy parametry dla dnaego posta
 
 wyświetlamy tytuł 
 <Text>{blogPost.title}</Text>
+
+# Adding a Creation Screen
+
+src/screens/CreateScreen.js
+
+kopiujemy ShowScrena do Create Screena
+
+zmieniamy na Create Screan 
+
+importujemy go w App.js
+
+dodajemy do navigatora
