@@ -172,3 +172,34 @@ Z IndexScreen.js usówamy
 
  id: Math.floor(Math.random() * 99999),
 
+# Updating the reducer
+BlogContext.js
+
+do reducera dodaliśmy
+  case 'delete_blogpost':
+      return state.filter(blogPost => blogPost.id !== action.payload)
+
+Stworzyliśmy nową funkcję dispatchująca
+!! przesyłamy id
+const deleteBlogPost = dispatch => {
+  return id => {
+    dispatch({ type: 'delete_blogpost', payload: id });
+  };
+};
+
+Przesłaliśmu  naszego dispatchera w kontekście
+blogReducer,
+  { addBlogPost },	  { addBlogPost, deleteBlogPost },
+  []
+
+  W IndexScreen.js 
+dodaliśmy deleteBlogPost do useState
+
+const { state, addBlogPost, deleteBlogPost } = useContext(Context);
+
+
+oraz 
+onPress
+
+<TouchableOpacity onPress={() => deleteBlogPost(item.id)}>
+
