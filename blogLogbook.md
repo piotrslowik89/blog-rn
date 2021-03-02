@@ -340,3 +340,30 @@ IndexScreen.js
 
 const IndexScreen = ({ navigation }) => {
   const { state, deleteBlogPost } = useContext(Context);
+
+ ## Deprecation in 'navigationOptions':
+- 'headerRight: <SomeElement />' will be removed in a future version. Use 'headerRight: () => <SomeElement />' instead
+
+
+# The Edit Icon Link
+Chcemy dodać ikonę edycji
+ShowScreen.js
+
+importujemy TouchableOpacity oraz
+import { EvilIcons } from '@expo/vector-icons';
+
+dodajemy  aby wyśiwtlało content
+ <Text>{blogPost.content}</Text>
+
+Piszemy funkcje navigationOptions:
+ ShowScreen.navigationOptions = ({ navigation }) => {
+  return {
+    headerRight: (
+      <TouchableOpacity onPress={() => navigation.navigate('Edit')}>
+        <EvilIcons name="pencil" size={35} />
+      </TouchableOpacity>
+    )
+  };
+};
+
+
