@@ -512,6 +512,7 @@ BlogPostForm.defaultProps = {
   }
 };
 # Editing Action Function
+# Editing in a Reducer 
 
 - BlogContext.js
 dodajemy do reducera
@@ -545,3 +546,13 @@ przypisujemy do zmiennych
   zamiast consoleloga wywołujemy funkcję dispatchująca
 
   editBlogPost(id, title, content);
+
+# Navigating Backwards  
+- BlogContext.js  do add i edit
+     if (callback) {
+      callback();
+   }
+
+- EditScreen.js 
+
+ editBlogPost(id, title, content, () => navigation.pop());
