@@ -512,3 +512,36 @@ BlogPostForm.defaultProps = {
   }
 };
 # Editing Action Function
+
+- BlogContext.js
+dodajemy do reducera
+case 'edit_blogpost':
+      return state.map(blogPost => {
+        return blogPost.id === action.payload.id ? action.payload : blogPost;
+      })
+
+tworzymy funkcję dispatchującą
+const editBlogPost = dispatch => {
+  return (id, title, content) => {
+    dispatch({
+      type: 'edit_blogpost',
+      payload: { id, title, content }
+    });
+  };
+};
+
+w eksporcie eksportujemy tą funkcję
+
+- EditScreen.js
+przypisujemy do zmiennych
+ const id = navigation.getParam('id');
+  const { state, editBlogPost } = useContext(Context);
+
+  dzięki temu możemy skrócić funkcje
+  const blogPost = state.find(blogPost => blogPost.id === id);
+
+
+  w return 
+  zamiast consoleloga wywołujemy funkcję dispatchująca
+
+  editBlogPost(id, title, content);
