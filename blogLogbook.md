@@ -366,4 +366,37 @@ Piszemy funkcje navigationOptions:
   };
 };
 
+# Communicating Info to Edit
 
+- BlogContext.js
+ dodajemy post testowy predefiniowany
+  [{ title: 'TEST POST', content: 'TEST CONTENT', id: 1 }]
+
+
+
+Tworzymy nowy ekran któremu przekazujemy parametr:
+- blog/src/screens/EditScreen.js 
+
+const EditScreen = ({ navigation }) => {
+  return (
+    <View>
+      <Text>Edit Screen - {navigation.getParam('id')}</Text>
+    </View>
+  );
+};
+ 
+- App.js
+importujemy nowy komponent ekranowy
+import EditScreen from './src/screens/EditScreen';
+dodajemy do nawigatora
+ Create: CreateScreen,
+    Edit: EditScreen
+
+
+
+
+- ShowScreen.js 
+uzupełniamy on Press
+ onPress={() =>
+          navigation.navigate('Edit', { id: navigation.getParam('id') })
+        }
