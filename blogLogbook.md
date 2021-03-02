@@ -679,3 +679,14 @@ stworzymy funkcję która będzie korzystała z propasa navigation.addListener z
     return () => {
       listener.remove();
     };
+
+# Deleting a Post
+- BlogContext.js
+
+możemy wykasować funkcje dispatchujące
+
+ale zostaswimy żeby usuneło również lokalnie
+
+const deleteBlogPost = dispatch => {
+ return async id => {
+    await jsonServer.delete(`/blogposts/${id}`);
