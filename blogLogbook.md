@@ -404,7 +404,7 @@ uzupełniamy on Press
 
 # Initializing State from Context
 
-EditScreen.js
+- EditScreen.js
 
 imporyujemy
  { useState, useContext }
@@ -428,6 +428,8 @@ w widoku:
       <TextInput value={title} onChangeText={newTitle => setTitle(newTitle)} />
 
 # Extracting Form Logic
+
+# Customizing OnSubmit
 - blog/src/components/BlogPostForm.js 
 tworzymy pusty komponent BlogPostForm
 kopiujemy całe view z creatScreen
@@ -477,8 +479,9 @@ importujemy BlogPOstForm
  Całym statem zarzadza BLogPostForm
 
 
-# Customizing OnSubmit
 
+
+# Initial Form Values
 - BlogPostForm.js 
 Dodajemy initialValues do state
 
@@ -495,3 +498,17 @@ dodajemy propsy initialValues
         console.log(title, content);
       }}
     />
+
+
+
+
+# Default Props
+- BlogPostForm.js
+
+BlogPostForm.defaultProps = {
+  initialValues: {
+    title: '',
+    content: ''
+  }
+};
+# Editing Action Function
