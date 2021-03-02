@@ -664,3 +664,18 @@ const addBlogPost = dispatch => {
 
 
 jsonserver/db.json
+
+
+# Refetching on Navigate
+
+- IndexScreen.js
+Ze względu żę useEffect wywołuje się tylko 1 raz
+stworzymy funkcję która będzie korzystała z propasa navigation.addListener za każdym razem ak w©ócimy do indexscreen wykona kolejne pobranie
+
+ const listener = navigation.addListener('didFocus', () => {
+      getBlogPosts();
+    });
+
+    return () => {
+      listener.remove();
+    };
