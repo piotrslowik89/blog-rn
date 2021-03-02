@@ -556,3 +556,97 @@ przypisujemy do zmiennych
 - EditScreen.js 
 
  editBlogPost(id, title, content, () => navigation.pop());
+
+ # Outside Data API
+npmjs.com/package/json-server
+
+# Issues with Servers + React Native
+tworzę nowy folder jsonserver
+
+npm install json-server ngrok
+
+# JSON Server and Ngrok Setup
+jsonserver/db.json
+
+
+{
+  "blogposts": [
+    {
+      "id": 1,
+      "title": "API POST",
+      "content": "content for my post"
+    }
+  ]
+}
+
+package.json
+
+"scripts": {
+    "db": "json-server -w db.json",
+    "tunel": "ngrok http 3000"
+
+
+
+## npm run db
+## npm run tunnel
+
+
+# npm install axios
+
+
+- .gitignore
+
+node_modules
+
+- IndexScreen.js
+import  useEffect
+
+dodajemy getBlogPosts do destrukturyzacji z kontekstu
+
+useEffect(() => {
+    getBlogPosts();
+  }, []);
+
+# JSON Server REST Conventions
+GET,POST,PUT,DELETE
+
+# Making a Request
+
+- blog/src/api/jsonServer.js
+
+import axios from 'axios';
+
+export default axios.create({
+  baseURL: 'http://d3758ea270d6.ngrok.io'
+});
+
+- BlogContext.js
+
+import jsonServer from '../api/jsonServer'
+
+dodajemy do blogReducera 
+case 'get_blogposts':
+      return action.payload;
+
+tworzymy nową funkcję dispatchującą
+
+const getBlogPosts = dispatch => {
+  return async () => {
+    const response = await jsonServer.get('/blogposts');
+
+    dispatch({ type: 'get_blogposts', payload: response.data });
+  };
+};
+
+dodajemy getBlogPosts do contekstu
+
+# Remote Fetch of Posts
+IndexScreen.js
+import React, { useContext, useEffect 
+
+dodajemygetBlogPost 
+ const { state, deleteBlogPost, getBlogPosts } = useContext(Context);
+
+  useEffect(() => {
+    getBlogPosts();
+  }, []);
