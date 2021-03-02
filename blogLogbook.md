@@ -475,3 +475,23 @@ importujemy BlogPOstForm
  return <BlogPostForm />;
 
  Całym statem zarzadza BLogPostForm
+
+
+# Customizing OnSubmit
+
+- BlogPostForm.js 
+Dodajemy initialValues do state
+
+const BlogPostForm = ({ onSubmit, initialValues }) => {
+  const [title, setTitle] = useState(initialValues.title);
+  const [content, setContent] = useState(initialValues.content);
+
+- EditScreen.js 
+dodajemy propsy initialValues
+
+<BlogPostForm
+      initialValues={{ title: blogPost.title, content: blogPost.content }}
+      onSubmit={(title, content) => {
+        console.log(title, content);
+      }}
+    />
