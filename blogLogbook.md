@@ -641,12 +641,26 @@ const getBlogPosts = dispatch => {
 dodajemy getBlogPosts do contekstu
 
 # Remote Fetch of Posts
-IndexScreen.js
+-IndexScreen.js
 import React, { useContext, useEffect 
 
-dodajemygetBlogPost 
+-dodajemy getBlogPost 
  const { state, deleteBlogPost, getBlogPosts } = useContext(Context);
 
   useEffect(() => {
     getBlogPosts();
   }, []);
+
+# Creating Posts with Post Request
+
+- BlogContext.js 
+aktualizujemy addBlogPost
+
+const addBlogPost = dispatch => {
+  return async (title, content, callback) => {
+    await jsonServer.post('/blogposts', { title, content });
+
+// dispatch({ type: 'add_blogpost', payload: { title, content } });
+
+
+jsonserver/db.json
